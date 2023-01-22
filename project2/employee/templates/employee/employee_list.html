@@ -1,0 +1,48 @@
+{% extends "employee/base.html" %}
+{% block content %}
+
+<form action="" method="GET">
+    {{ search_form }}
+    <button type="submit">検索</button>
+</form>
+
+<table class = "table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>社員番号</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>生年月日</th>
+            <th>入社日</th>
+            <th>部門</th>
+            <th>セグメント</th>
+            <th>費用区分</th>
+            <th>契約形態</th>
+            <th>クラス</th>
+            <th>ランク</th>
+            <th>その他手当</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for employee in employee_list %}
+    <tr>
+        <td>{{ employee.employee_id }}</td>
+        <td>{{ employee.employee_name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.birth }}</td>
+        <td>{{ employee.date_of_entry }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.segment }}</td>
+        <th>{{ employee.cost_type }}</th>
+        <th>{{ employee.contract_type }}</th>
+        <th>{{ employee.salary_class }}</th>
+        <th>{{ employee.salary_rank }}</th>
+        <th>{{ employee.other_allowances_type }}</th>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
